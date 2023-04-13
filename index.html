@@ -5,9 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>this is template html</title>
+    <!-- ajax js script -->
+    <script defer src="xhr.js"></script>
+    <script defer src="flex-star.js"></script>
 </head>
 <style>
     * {
+    font-family: arial;
       -webkit-touch-callout: none; /* iOS Safari */
         -webkit-user-select: none; /* Safari */
          -khtml-user-select: none; /* Konqueror HTML */
@@ -27,14 +31,33 @@
     .push:hover {
         background: orange;
     }
+    .box-res { background: #FF5733; min-height: 300px; width: 500px; }
+    .box-res h1 { padding: 32px; font-size:24px; color: white; border-bottom:1px solid white; }
+    .box-res p { padding:32px; color: #3C3C3C; font-weight: bold;}
+    .push-btn {
+        background: white;
+        padding: 32px;
+        border: 1px solid silver;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 20px;
+    }
+    .push-btn:hover { border: 1px solid red; color: red;}
 </style>
 <body>
-    <h2 class='box'>LinkedListNodes</h2>
+    <h2 class='box'>LinkedListNodes | приложение для решения задач и квалификации</h2>
     <div class='push'>
         show result
     </div>
     <p class='msg'>here you can see the result</p>
     <i style='border-bottom: 1px solid black; '>show to console</i>
+
+    <div class="box-res">
+        <h1>Отображение результата запроса:</h1>
+        <p>результат</p>
+        <br>
+        <div class="push-btn">отправить запрос</div>
+    </div>
 <footer style='top: 100px; position: relative; padding: 20px;'>
     <span style="color: orange;">(c)</span> slavik programmer | this is footer | js-ready
 </footer>
@@ -124,7 +147,7 @@ class LinkedList {
 */
 function show() {
     const list = new LinkedList();
-    list.append('a').append('b').append('c');
+    list.append('a').append('b').append('c').append('1');
     console.log(list.toArray());
     document.querySelector('.msg').innerHTML = list.toArray();
 
@@ -138,7 +161,80 @@ function show() {
 // event ready
 document.querySelector('.push').addEventListener('click', show);
 
- 
+
+/*callback*/
+function greeting(name) {
+    console.log(`hello, ${name}`);
+}
+
+
+function processUserInput(callback) {
+    const name = prompt('please enter your name');
+    callback(name);
+}
+/*
+processUserInput(greeting);*/
+
+
+
+// пример фукнции в другой функции и передача аргументов 
+let bitTime = '12:12';
+
+function ddd(arg = 0) {  
+   if (arg == 1) {
+      isTypejs(arg);
+      return false;
+   } else {
+      isTypejs(arg);
+      return false;
+   }
+}
+
+function isTypejs(type) {
+    if (typeof type == 'number') {
+        console.log( type + ' это число');
+    } else {
+        console.log(typeof type + ' тип - не число ');
+    }
+}
+
+
+// anonimus func
+let personData = function() {
+    let x = 'hello world';
+    if (1 > 2) {
+        return 'true ' + x;
+    } 
+    return 'false ' + x;
+}
+
+// Функции вида "function declaration statement"
+function square(number) {
+  return number * number;
+}
+
+// типо callback или обращение к api
+const first = () => {
+    setTimeout(() => {
+        console.log(1);
+    }, 500)
+};
+// first();
+
+
+
+// closure - замыкание - 
+// name = внешняя функция
+var pet = function(name) {
+    var getName = function() {
+        return name;
+    }
+    return getName;
+}
+
+myPet = pet('Barsik');
+// console.log(myPet());
+
 
 
 </script>
