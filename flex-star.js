@@ -163,7 +163,7 @@ function myfunction(a, b) {
 }
 // console.log(x);
 
-const ObjectCssdefault =  {
+const ObjectCssdefault = {
   color: 'orange',
   backgroundColor: 'black',
   fontFamily: 'calibti, roboto',
