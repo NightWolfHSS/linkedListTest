@@ -163,10 +163,38 @@ function myfunction(a, b) {
 }
 // console.log(x);
 
+/* set style in js*/
 const ObjectCssdefault = {
-  color: 'orange',
-  backgroundColor: 'black',
-  fontFamily: 'calibti, roboto',
+  color: '#303030',
+  backgroundColor: 'lightblue',
+  fontFamily: 'calibri',
+  ops: '1',
+  fs: '19px',
+  fw: 'bold',
 };
 
-console.log(ObjectCssdefault);
+function onreadyDomElems(){
+  document.querySelector('.box-res-two').style.backgroundColor = ObjectCssdefault.backgroundColor;
+  document.querySelector('.box-res-two p').style.color = ObjectCssdefault.color;
+  document.querySelector('.box-res-two p').style.opacity = ObjectCssdefault.ops;
+  document.querySelector('.box-res-two p').style.fontSize = ObjectCssdefault.fs;
+  document.querySelector('.box-res-two p').style.fontWeight = ObjectCssdefault.fw;
+
+}
+document.querySelector('.push-content').addEventListener('click', function() {
+  setTimeout(onreadyDomElems, 1200);
+});
+ 
+// rm selectors / elems dom
+document.querySelector('.rm-content').addEventListener('click', function() {
+  setTimeout(function() {
+    document.querySelector('.box-res-two').style.opacity = '0';
+    // document.body.classList.add('.box-res-two');
+    // document.body.classList.remove('.box-res-two');
+  }, 700);
+});
+// можно сделать проверку на существование обьекта и удалить если есть - добавить кнопку если есть 
+
+
+
+

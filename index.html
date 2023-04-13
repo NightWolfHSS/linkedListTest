@@ -31,9 +31,33 @@
     .push:hover {
         background: orange;
     }
-    .box-res { background: #FF5733; min-height: 300px; width: 500px; }
+    .box-res { background: #FF5733; min-height: 300px; }
     .box-res h1 { padding: 32px; font-size:24px; color: white; border-bottom:1px solid white; }
     .box-res p { padding:32px; color: #3C3C3C; font-weight: bold;}
+    .box-res-two h2, .box-res-two p {color: white;
+       padding: 32px; } 
+      .box-res-two, .push-content, .rm-content{ 
+        -webkit-transition: all 1000ms ease;
+        -moz-transition: all 1000ms ease;
+        -ms-transition: all 1000ms ease;
+        -o-transition: all 1000ms ease;
+        transition: all 1000ms ease;} 
+        .box-res-two p {
+            opacity: 0;
+            -webkit-transition: all 2500ms ease;
+            -moz-transition: all 2500ms ease;
+            -ms-transition: all 2500ms ease;
+            -o-transition: all 2500ms ease;
+            transition: all 2500ms ease;
+        }
+        .con-center {
+            padding: 32px;
+            background: yellowgreen;
+        }
+        .push-content, .rm-content { padding:10px 5px; margin: 2px; cursor: pointer; max-width: 300px; text-align: center; border: 1px solid black;}
+        .push-content:hover { background: black; color: white; border: 1px solid white; }
+        .rm-content:hover {background: orange; color: white; border: 1px solid orange;}
+
     .push-btn {
         background: white;
         padding: 32px;
@@ -57,6 +81,20 @@
         <p>результат</p>
         <br>
         <div class="push-btn">отправить запрос</div>
+    </div>
+
+    <div class="con-center">
+        <div class="push-content">
+            сгенерировать элемент
+        </div>
+        <div class="rm-content">
+            убрать элемент
+        </div>
+    </div>
+    
+    <div class="box-res-two">
+        <h2>отображение или рендер информации</h2>
+        <p>конечно везде нужны проверки на работоспособность программы</p>
     </div>
 <footer style='top: 100px; position: relative; padding: 20px;'>
     <span style="color: orange;">(c)</span> slavik programmer | this is footer | js-ready
