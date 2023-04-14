@@ -174,27 +174,51 @@ const ObjectCssdefault = {
 };
 
 function onreadyDomElems(){
+  document.querySelector('.box-res-two').style.opacity = '1';
   document.querySelector('.box-res-two').style.backgroundColor = ObjectCssdefault.backgroundColor;
   document.querySelector('.box-res-two p').style.color = ObjectCssdefault.color;
   document.querySelector('.box-res-two p').style.opacity = ObjectCssdefault.ops;
   document.querySelector('.box-res-two p').style.fontSize = ObjectCssdefault.fs;
   document.querySelector('.box-res-two p').style.fontWeight = ObjectCssdefault.fw;
-
 }
+// create selector and generate dom and set style
+
 document.querySelector('.push-content').addEventListener('click', function() {
+  // test_dom();
+  let b = document.querySelector('.whs');
+  b.classList.add('box-res-two');
+  console.log(b);
   setTimeout(onreadyDomElems, 1200);
+  // you can just use toggle
 });
- 
+
+// i can see all created elements
+function test_dom() {
+  let bx = document.querySelector('.con-center').parentNode;
+  console.log(bx)
+  // this func for monitoring dom elems -
+}
+// такие методы приведут к ошибке чтение свойств  - потому что их уже нет
+// ты не сможешь снова их добавить - поэтому следует либо просто спрятать 
+// либо искать проверки
+// здесь мы использовали 2 способа однопременно 
+// скрыли блок затем его удалили - потом проверили есть ли такой селектор
 // rm selectors / elems dom
 document.querySelector('.rm-content').addEventListener('click', function() {
   setTimeout(function() {
-    document.querySelector('.box-res-two').style.opacity = '0';
-    // document.body.classList.add('.box-res-two');
-    // document.body.classList.remove('.box-res-two');
+    let hd = document.querySelector('.whs');
+    if (hd.classList.contains('box-res-two')) {
+      document.querySelector('.box-res-two').style.opacity = 0;
+      // and rm elem
+      setTimeout(function() {
+          hd.classList.remove('box-res-two');
+      }, 800);
+    } else {
+      console.warn('selector not found');
+      return false;
+    }
   }, 700);
 });
-// можно сделать проверку на существование обьекта и удалить если есть - добавить кнопку если есть 
-
-
-
-
+/*what will he bring out*/
+const arrbox1 = [10, 20, 30, 40, 50, 100];
+const resArrbox1 = arrbox1.fill(0, 2, 4);
