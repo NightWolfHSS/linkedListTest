@@ -28,7 +28,7 @@ const test_2 = ownArrayBox.reduce((total, value) => total * value);
 // false если нет
 const ownArrayBox2 = ['a','b','c'];
 const test_3 = ownArrayBox2.every(test => test === 'b');
-const ownArrayBox3 = ['a', 'a', 'a'];
+const ownArrayBox3 = ['a','a','a'];
 const test_4 = ownArrayBox3.every(test => test === 'a');
 // map = принимает функцию в качестве параметра и создает новый массив с результатом
 // вызова указанной функции для каждого элемента массива. Всегда возвращает одинаковое кол во элементов
@@ -222,3 +222,61 @@ document.querySelector('.rm-content').addEventListener('click', function() {
 /*what will he bring out*/
 const arrbox1 = [10, 20, 30, 40, 50, 100];
 const resArrbox1 = arrbox1.fill(0, 2, 4);
+
+// factorial 
+function factorial(n) {
+  let res = 1;
+  for(let i = 0; i < n; i++) {
+    res *= i + 1;
+    console.log(res);
+  }
+  console.log(res);
+  return res;
+}
+// factorial(5);
+
+// emulate seconds
+let boxI = 0, resEmulate;
+function emulateSeconds() {
+  boxI++;
+  return boxI;
+}
+// не более 5 раз
+let boost = setInterval(function(){
+  resEmulate = emulateSeconds();
+  console.log(resEmulate);
+  if (resEmulate >= 5) { 
+    console.warn('stop - время вышло - точнее итерации');
+    clearInterval(boost);
+  }
+}, 1000);
+
+// recursion
+function factorial(n) {
+   if (n <= 1) {
+    return 1;
+  }
+  return n * factorial(n - 1);
+}
+// console.log(factorial(5));
+
+// 120
+let res = 1;
+let storm = res *= 5 + 1;
+storm *= 5;
+// console.log(storm);
+
+let storm2 = 2;
+storm2 = 2 * 2;
+storm2 = 4 * 2;
+storm2 = 8 * 2;
+storm2 = 16 * 2;
+storm2 = 32 * 2;
+// console.log(storm2);
+// factorial 5
+let storm3 = 1 * 2 * 3 * 4 * 5;
+// console.log(storm3);
+
+let storm4 = 2, num1 = 9, smm;
+storm4 *= num1 ;
+// console.log(storm4);

@@ -12,30 +12,6 @@ xhr.onload = () => {
 
 	function generate() {
 		// let data = xhr.response;
-
-        let data = {
-        	1: {
-        		name: 'slavik',
-        		fs: 'sl'
-        	},
-        	2: {
-        		name: 'good',
-        		fs: 'kik'
-        	}
-        }
-        
-        // работает
-        Object.keys(data).forEach(key => {
-        	
-    		let val = data[key];
-    		console.log(`${key}`);
-
-    		Object.keys(val).forEach(tkey => {
-    			let vol = val[tkey];
-    			console.log(`${ tkey }: ${vol}`);
-    		})
-
-        });
 		
         //  тут не много не правильно
 		// Object.keys(data).forEach(key => {
@@ -76,3 +52,81 @@ document.querySelector('.push-btn').addEventListener('click', function(){
 });
 
 // stop right now the current xhr connection and run the following query
+
+
+const data = {
+	1: {
+		name: 'slavik',
+		fs: 'sl'
+	},
+	2: {
+		name: 'good',
+		fs: 'kik'
+	}
+}
+    
+// работает
+// Object.keys(data).forEach(key => {
+	
+// 	let val = data[key];
+// 	console.log(`${key}`);
+
+// 	Object.keys(val).forEach(tkey => {
+// 		let vol = val[tkey];
+// 		console.log(`${ tkey }: ${vol}`);
+// 	})
+
+// });
+
+
+const superHeroes =  {
+  1: {
+  	name: 'Daniel',
+  	age: 20
+  }, 
+  2: {
+  	name: 'Stas',
+  	age: 14
+  }, 
+  3: {
+  	name: 'foxid',
+  	age: 12,
+  	superPower: {
+  		ace: 'true',
+  		fire: 'false',
+  		levelPower: 200
+  	}
+  },
+  4:  {
+  	name: 'Sii',
+  	age: 200, 
+  	superPower: {
+  		ace: 'false',
+  		fire: 'true',
+  		levelPower: 1000
+  	}
+  },
+  5: {
+  	idea: 'super-idea',
+   'fix-idea': this.idea,
+  }
+}
+
+
+
+
+
+// const arrBoxObj = {
+//   arr1: ['name', 'age', 'level', 12, 1923, 'music'],
+//   arr2: ['noweekend', 'work', 'hard'],
+//   arrWodker: []
+// }
+// // код меньше = размер массива неизвестен
+// for(let i = 0; i < arrBoxObj.arr1.length; i++) {
+//   console.log(arrBoxObj.arr1[i]);
+// }
+// // код который выполнится быстрее изза статического значение массива 
+// let index, len;
+// for(index = 0, len = arrBoxObj.arr1.length; index < len; ++index) {
+// 	console.log(arrBoxObj.arr1[index]);
+// }
