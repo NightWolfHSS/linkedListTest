@@ -21,7 +21,21 @@
                                       supported by Chrome, Edge, Opera and Firefox */
     }
     body { padding: 4px; }
-    footer { background: black; color: white; }
+    footer { background: black; color: white; margin-bottom: 110px;}
+    .line-foo-images{
+        padding-top: 20px;
+        padding-bottom:40px;
+        height: 100px;
+        width: 100%;
+        background-image: url('images/f2.jpg');
+        background-size: cover;
+    }
+    .line-head-images{
+        height: 100px;
+        width: 100%;
+        background-image: url('images/h.jpg');
+        background-size: cover;
+    }
     .push {
         padding: 10px;
         border-radius: 20px;
@@ -71,7 +85,10 @@
     .push-btn:hover { border: 1px solid red; color: red;}
 </style>
 <body>
+    <div class="line-head-images"></div>
+    <h1>Unknown.com:</h1>
     <h2 class='box'>LinkedListNodes | приложение для решения задач и квалификации</h2>
+    <p style='font-size: 12px; color: seagreen; border-bottom: 1px solid darkgreen; font-weight: bold;'>тесты программирование код - программы алгоритмы</p>
     <div class='push'>
         show result
     </div>
@@ -101,6 +118,7 @@
 <footer style='top: 100px; position: relative; padding: 20px;'>
     <span style="color: orange;">(c)</span> slavik programmer | this is footer | js-ready
 </footer>
+<div class="line-foo-images"></div>
 <script>
    
 /*
