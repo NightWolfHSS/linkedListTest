@@ -13,7 +13,6 @@ xhr.onload = () => {
 	function generate() {
 		// let data = xhr.response;
 		
-        //  тут не много не правильно
 		// Object.keys(data).forEach(key => {
         //     let val = data[key];
         //     Object.keys(val).forEach(key => {
@@ -82,11 +81,21 @@ const data = {
 const superHeroes =  {
   1: {
   	name: 'Daniel',
-  	age: 20
+  	age: 20,
+  	superPower: {
+  		ace: 'true',
+  		fire: 'true',
+  		levelPower: 22100
+  	}
   }, 
   2: {
   	name: 'Stas',
-  	age: 14
+  	age: 14,
+  	superPower: {
+  		ace: 'true',
+  		fire: 'false',
+  		levelPower: 1200
+  	}
   }, 
   3: {
   	name: 'foxid',
@@ -105,12 +114,27 @@ const superHeroes =  {
   		fire: 'true',
   		levelPower: 1000
   	}
-  },
-  5: {
-  	idea: 'super-idea',
-   'fix-idea': this.idea,
   }
 }
+
+
+
+
+let bio = Object.keys(superHeroes);
+
+for(let key in superHeroes) {
+	// object hidden if key
+  console.log(superHeroes[key]);
+}
+
+// console.table(Object.values(superHeroes));
+var arrbox3 = ['1','c','d','h', '3', '2'];
+// console.log(Object.keys(arrbox3));
+var arrbox4 = {0: '1', 1: '2', 2: '3', 3: '4'};
+// console.log(log_arr_box);
+// console.log(Object.values(arrbox3).length);
+// console.log(Object.values(arrbox3));
+
 
 
 
