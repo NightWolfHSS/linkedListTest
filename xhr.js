@@ -85,7 +85,10 @@ const superHeroes =  {
   	superPower: {
   		ace: 'true',
   		fire: 'true',
-  		levelPower: 22100
+  		levelPower: 22100,
+  		lev: {
+  			name: 'sadasd'
+  		}
   	}
   }, 
   2: {
@@ -94,7 +97,10 @@ const superHeroes =  {
   	superPower: {
   		ace: 'true',
   		fire: 'false',
-  		levelPower: 1200
+  		levelPower: 1200,
+  		lev: {
+  			name: '123123213'
+  		}
   	}
   }, 
   3: {
@@ -103,7 +109,10 @@ const superHeroes =  {
   	superPower: {
   		ace: 'true',
   		fire: 'false',
-  		levelPower: 200
+  		levelPower: 200,
+  		lev: {
+  			name: '2222222'
+  		}
   	}
   },
   4:  {
@@ -112,30 +121,68 @@ const superHeroes =  {
   	superPower: {
   		ace: 'false',
   		fire: 'true',
-  		levelPower: 1000
+  		levelPower: 1000,
+  		lev: {
+  			name: 'fugo'
+  		}
   	}
   }
 }
 
+// test obj
+// const testObjc = Object.values(superHeroes);
+// for(let key7 in testObjc) {
+// 	console.log(testObjc[key7]['superPower']['lev']['name']);
+// }
 
+// test obj
+// for(let k1 in superHeroes) {
+// 	console.log(superHeroes[k1]['superPower']['ace']);
+// }
 
-
-let bio = Object.keys(superHeroes);
-
-for(let key in superHeroes) {
-	// object hidden if key
-  console.log(superHeroes[key]);
+// first act 
+function getProps(obj) {
+  for(let prop in obj) {
+  	if (typeof(obj[prop]) === 'object') {
+  		// console.log(obj[prop]);
+  		for(let prop2 in obj[prop]) {
+  			if (typeof(obj[prop][prop2]) === 'object') {
+  				console.log(obj[prop][prop2])
+  				///
+  			}
+  		}
+  	}
+  }
 }
 
-// console.table(Object.values(superHeroes));
-var arrbox3 = ['1','c','d','h', '3', '2'];
-// console.log(Object.keys(arrbox3));
-var arrbox4 = {0: '1', 1: '2', 2: '3', 3: '4'};
-// console.log(log_arr_box);
-// console.log(Object.values(arrbox3).length);
-// console.log(Object.values(arrbox3));
+// getProps(superHeroes);
 
+// second act 
+function getFiniteValue(obj) {
+	getProp(obj);
+	function getProp(o) {
+		for(let prop in o) {
+			if (typeof(o[prop]) === 'object') {
+				getProp(o[prop]);
+			} else {
+				console.table(prop + ': ' + o[prop]);
+			}
+		} 
+	}
+}
+// getFiniteValue(superHeroes);
 
+// recursion test
+function reqs(o) {
+  testMn(o);
+  function testMn(o) {
+  	if (o < 4) {
+  		console.log(o + ' меньше 4 ');
+  	} else {
+  		console.log(o + ' больше 4 ');
+  	}
+  }
+}
 
 
 
