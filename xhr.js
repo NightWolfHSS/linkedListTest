@@ -19,30 +19,27 @@ xhr.onload = () => {
 	    let box_res = document.querySelector('.box-res');
 	    let elemTp = document.createElement('div');
 		let data = xhr.response;
-        // way first loop through the prototype
-        // for(prop in data) {
-        // 	console.log(data[prop]['id']);
-        // 	console.log(data[prop]['name']);
-        // }
+		let custom_data = "";
+        // render of arr... in obj ... 
+        for(let person of data){
+        	custom_data += `
+        		<h2> id: ${person.id}  - название: ${person.name}</h2>
+        		<h3> имя пользователя: ${person.username}</h3>	
+        		<h4> email: ${person.email}</h4>
+        		<h5> адрес:</h5>
+        		<hr>
+        		<p>улица: ${person.address.street}</p>
+        		<p>квартал: ${person.address.suite}</p>
+        		<p>город: ${person.address.city}</p>
+        		<p>зипкод: ${person.address.zipcode}</p>
 
-        // way second
-		Object.values(data).forEach(key => {
-            console.log('id:' + key['id'] + ' ' + key['name']);
-            return `
-              <p> id:${key['id']}</p>
-            `;
+        		<p>крр: ${person.address.geo.lat}</p>
+        		<p>крр: ${person.address.geo.lng}</p>
 
-            // Object.keys(val).forEach(keyz => {
-            // 	let big = val[keyz];
-            // 	content.innerHTML = JSON.stringify(big);
-            // 	// console.log(val[keyz]);  он берет последнюю
-            // });
-		});
+        	`;
+        }
 
-        // elemTp.className = 'clever';
-        // box_res.append(elemTp);
-        // elemTp.innerHTML = "<p> тип: - "+ xhr.responseType +"</p>" +
-        // "<p>з аголовок: -  " + responseHeader + "</p>"
+        content.innerHTML = custom_data;
 	}
 	setTimeout(generate, 1000);
 
@@ -97,57 +94,6 @@ const data = {
 
 // });
 
-
-const superHeroes =  {
-  1: {
-  	name: 'Daniel',
-  	age: 20,
-  	superPower: {
-  		ace: 'true',
-  		fire: 'true',
-  		levelPower: 22100,
-  		lev: {
-  			name: 'sadasd'
-  		}
-  	}
-  }, 
-  2: {
-  	name: 'Stas',
-  	age: 14,
-  	superPower: {
-  		ace: 'true',
-  		fire: 'false',
-  		levelPower: 1200,
-  		lev: {
-  			name: '123123213'
-  		}
-  	}
-  }, 
-  3: {
-  	name: 'foxid',
-  	age: 12,
-  	superPower: {
-  		ace: 'true',
-  		fire: 'false',
-  		levelPower: 200,
-  		lev: {
-  			name: '2222222'
-  		}
-  	}
-  },
-  4:  {
-  	name: 'Sii',
-  	age: 200, 
-  	superPower: {
-  		ace: 'false',
-  		fire: 'true',
-  		levelPower: 1000,
-  		lev: {
-  			name: 'fugo'
-  		}
-  	}
-  }
-}
 
 // test obj
 // const testObjc = Object.values(superHeroes);
@@ -205,6 +151,63 @@ function reqs(o) {
 }
 
 
+
+function justCodeArrInObj() {
+  const superHeroes = [
+  {
+  	name: 'Daniel',
+  	age: 20,
+  	superPower: {
+  		ace: 'true',
+  		fire: 'true',
+  		levelPower: 22100,
+  		lev: {
+  			name: 'sadasd'
+  		}
+  	}
+  }, 
+  {
+  	name: 'Stas',
+  	age: 14,
+  	superPower: {
+  		ace: 'true',
+  		fire: 'false',
+  		levelPower: 1200,
+  		lev: {
+  			name: '123123213'
+  		}
+  	}
+  }, 
+  {
+  	name: 'foxid',
+  	age: 12,
+  	superPower: {
+  		ace: 'true',
+  		fire: 'false',
+  		levelPower: 200,
+  		lev: {
+  			name: '2222222'
+  		}
+  	}
+  },
+  {
+  	name: 'Sii',
+  	age: 200, 
+  	superPower: {
+  		ace: 'false',
+  		fire: 'true',
+  		levelPower: 1000,
+  		lev: {
+  			name: 'fugo'
+  		}
+  	}
+  }
+];
+
+  let result = superHeroes.map(({ name, age, superPower }) => `\n${name} ${age} ${superPower}`).join('')
+  console.log(result);
+  return result
+}
 
 
 // const arrBoxObj = {
