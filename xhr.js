@@ -19,31 +19,30 @@ xhr.onload = () => {
 	    let box_res = document.querySelector('.box-res');
 	    let elemTp = document.createElement('div');
 		let data = xhr.response;
+        // way first loop through the prototype
+        // for(prop in data) {
+        // 	console.log(data[prop]['id']);
+        // 	console.log(data[prop]['name']);
+        // }
 
-        for(key in data) {
+        // way second
+		Object.values(data).forEach(key => {
+            console.log('id:' + key['id'] + ' ' + key['name']);
+            return `
+              <p> id:${key['id']}</p>
+            `;
 
-        }
+            // Object.keys(val).forEach(keyz => {
+            // 	let big = val[keyz];
+            // 	content.innerHTML = JSON.stringify(big);
+            // 	// console.log(val[keyz]);  он берет последнюю
+            // });
+		});
 
-        // let main_data = Object.values(data);
-        // console.log(main_data[0]['name']);
-        // console.log(main_data[0]['company']);
-
-
-
-		// render
-		// Object.keys(data).forEach(key => {
-        //     let val = data[key];
-        //     Object.keys(val).forEach(keyz => {
-        //     	let big = val[keyz];
-        //     	content.innerHTML = JSON.stringify(big);
-        //     	// console.log(val[keyz]);  он берет последнюю
-        //     });
-		// });
-
-        elemTp.className = 'clever';
-        box_res.append(elemTp);
-        elemTp.innerHTML = "<p> тип: - "+ xhr.responseType +"</p>" +
-        "<p>з аголовок: -  " + responseHeader + "</p>"
+        // elemTp.className = 'clever';
+        // box_res.append(elemTp);
+        // elemTp.innerHTML = "<p> тип: - "+ xhr.responseType +"</p>" +
+        // "<p>з аголовок: -  " + responseHeader + "</p>"
 	}
 	setTimeout(generate, 1000);
 
