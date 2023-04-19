@@ -1,4 +1,7 @@
+/*i`m agree with you this code is a house) but it just pructice*/
+
 /*application ajax - XHR*/
+// fakeapi JSON data
 let requestURL = 'https://jsonplaceholder.typicode.com/users';
 /* create new xhr */
 const xhr = new XMLHttpRequest();
@@ -8,28 +11,46 @@ xhr.open('GET', requestURL);
 xhr.responseType = 'json';
 /* onload responce */
 xhr.onload = () => {
-	document.querySelector('.box-res p').innerHTML = 'Загрузка';
-
+	let responseHeader = xhr.getResponseHeader('Content-type');
+	let content = document.querySelector('.box-res p');
+	content.innerHTML = 'Загрузка';
+    // render data
 	function generate() {
-		// let data = xhr.response;
-		
+	    let box_res = document.querySelector('.box-res');
+	    let elemTp = document.createElement('div');
+		let data = xhr.response;
+
+        for(key in data) {
+
+        }
+
+        // let main_data = Object.values(data);
+        // console.log(main_data[0]['name']);
+        // console.log(main_data[0]['company']);
+
+
+
+		// render
 		// Object.keys(data).forEach(key => {
         //     let val = data[key];
-        //     Object.keys(val).forEach(key => {
-        //     	let big = val[key];
-        //     	console.log(`${key}: ${big}`);
+        //     Object.keys(val).forEach(keyz => {
+        //     	let big = val[keyz];
+        //     	content.innerHTML = JSON.stringify(big);
+        //     	// console.log(val[keyz]);  он берет последнюю
         //     });
 		// });
 
-
-
-		document.querySelector('.box-res p').innerHTML = 'ты что то сделал';
+        elemTp.className = 'clever';
+        box_res.append(elemTp);
+        elemTp.innerHTML = "<p> тип: - "+ xhr.responseType +"</p>" +
+        "<p>з аголовок: -  " + responseHeader + "</p>"
 	}
 	setTimeout(generate, 1000);
 
     function hidebtn() {
     	document.querySelector('.push-btn').style.display = 'none';
     }
+
     hidebtn();
 	// можно обрабатывать получить отобразить зарендерить передать сделать функцию
 
