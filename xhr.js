@@ -272,3 +272,41 @@ let axe_v2 = {
 // Object.values(axe_v2).forEach( v => {
 //   console.log(v);
 // });
+
+
+// function main() {
+// 	// second
+// 	setTimeout(function() {
+// 		console.log('the center of earch');
+// 	}, 2000);
+// 	// will execute first
+// 	console.log('bye');
+// }
+// main();
+
+const promise = new Promise(function(resolve, reject) {
+  setTimeout(() => resolve('done'), 1000);
+
+});
+
+const myPromise = new Promise(function(){
+    // console.log('Выполнение асинхронной операции');
+});
+
+const promise2 = new Promise(function(resolve, reject) {
+  console.log('execute operation now ');
+  // reject('Переданы некорректные данные');
+  // resolve('staff so good');
+});
+const xs = 1, c = 3;
+const promise3 = new Promise(function(resolve, reject) {
+	if (xs === 0) {
+		// просто это выполнится первым - reject для ошибок
+		reject('неверные данные');
+	} else {
+		const z = c / xs;
+		resolve(z);
+	}
+});
+console.dir(promise3);
+
