@@ -32,10 +32,8 @@ xhr.onload = () => {
         		<p>квартал: ${person.address.suite}</p>
         		<p>город: ${person.address.city}</p>
         		<p>зипкод: ${person.address.zipcode}</p>
-
         		<p>крр: ${person.address.geo.lat}</p>
         		<p>крр: ${person.address.geo.lng}</p>
-
         	`;
         }
 
@@ -215,12 +213,62 @@ function justCodeArrInObj() {
 //   arr2: ['noweekend', 'work', 'hard'],
 //   arrWodker: []
 // }
-// // код меньше = размер массива неизвестен
 // for(let i = 0; i < arrBoxObj.arr1.length; i++) {
 //   console.log(arrBoxObj.arr1[i]);
 // }
+
 // // код который выполнится быстрее изза статического значение массива 
 // let index, len;
 // for(index = 0, len = arrBoxObj.arr1.length; index < len; ++index) {
 // 	console.log(arrBoxObj.arr1[index]);
 // }
+
+
+// axe array for-...
+let axe = [
+  'persone',
+  'age',
+  'power',
+  ['sp', 'xp', 'xp2'],
+];
+let axe_v2 = {
+	person: 'user',
+	age: 20,
+	power: 2000,
+	news: ['sp', 'xp', 'xp2']
+};
+// console.log(axe[3][0])
+// of
+// for(let x of axe) {
+//   console.log(axe[3]);
+// }
+
+// // in
+// for(let x in axe) {
+// 	console.log(axe[x]);
+// }
+
+//  it not worked
+// for(let x of axe_v2) {
+//   console.log(axe_v2);
+// }
+
+// in
+// for(let x in axe_v2) {
+// 	console.log(axe_v2);
+// }
+
+// for arr
+// axe.forEach(function(v) {
+// 	console.log(v);
+// });
+
+// for object keys
+// Object.keys(axe_v2).forEach( v2 => {
+//   console.log(v2, axe_v2[v2]);
+// });
+
+// for object values
+// Object.values(axe_v2).forEach( v => {
+//   console.log(v);
+// });
