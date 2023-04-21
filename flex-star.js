@@ -86,7 +86,7 @@ bTst.age    = 1920;
 bTst['fix']  = 'yes';
 bTst['name'] = 'ocean-center-city';
 bTst.getDaysDuck = function () { console.log(this.age) };
-bTst.getDaysDuck();
+// bTst.getDaysDuck();
 // new obj ...
 const std1 = {name: 'carl'};
 const std2 = std1;

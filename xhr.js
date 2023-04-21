@@ -1,6 +1,6 @@
-/*i`m agree with you this code is a house) but it just pructice*/
-
-/*application ajax - XHR*/
+/* i`m agree with you this code is a house) but it just pructice */
+// async methods here = test anync
+/* application ajax - XHR */
 // fakeapi JSON data
 let requestURL = 'https://jsonplaceholder.typicode.com/users';
 /* create new xhr */
@@ -148,8 +148,6 @@ function reqs(o) {
   }
 }
 
-
-
 function justCodeArrInObj() {
   const superHeroes = [
   {
@@ -286,18 +284,19 @@ let axe_v2 = {
 
 const promise = new Promise(function(resolve, reject) {
   setTimeout(() => resolve('done'), 1000);
-
 });
 
 const myPromise = new Promise(function(){
-    // console.log('Выполнение асинхронной операции');
+  // console.log('Выполнение асинхронной операции');
 });
 
 const promise2 = new Promise(function(resolve, reject) {
-  console.log('execute operation now ');
+  // console.log('execute operation now ');
   // reject('Переданы некорректные данные');
   // resolve('staff so good');
 });
+
+
 const xs = 1, c = 3;
 const promise3 = new Promise(function(resolve, reject) {
 	if (xs === 0) {
@@ -308,5 +307,227 @@ const promise3 = new Promise(function(resolve, reject) {
 		resolve(z);
 	}
 });
-console.dir(promise3);
 
+// command run new func into (then) - resolve (r) == true
+// v get param in methode mPromise
+const mPromise = new Promise(function(r) {
+  console.log('execute async code ');
+  r('best code exec');
+});
+
+// mPromise.then(function(v){
+//   console.log(`Data received ${v}`);
+// });
+
+// you can just get the result 
+const x1 = 2, y1 = 8;
+const promiseR34 = new Promise(function() {
+  console.log('nissan GT-R power');
+  const z1 = x1 * y1;
+  setTimeout(function() {
+    var time = performance.now();
+    console.log(`result: ${z1} - will be done later + ${time}`);
+  }, 1200);
+});
+promiseR34.then();
+
+// just return resolve no use new - right now
+const promise4 = Promise.resolve('sonic very faster');
+promise4.then( v => console.log(v));
+
+// define a promise through a function
+function sum(s, h) {
+	return new Promise(function(r) {
+		const res = s + h;
+		r(res);
+	})
+}
+sum(2, 5).then(function(v){ console.log('result: ', v);});
+sum(23, 2).then(function(v){ console.log('result 2:', v);});
+
+// now we will see the catch method
+// resolve not execute
+const promise5 = new Promise(function(resolve, reject) {
+  console.log('test5');
+  // resolve('data was returned');
+  reject('return - nunknown error');
+});
+// execute 2second
+promise5.catch(function(e) {
+  setTimeout(function() {
+    console.error(e);
+  }, 2100);
+});
+
+// function is not found 
+const promise6 = new Promise(function(resolve) {
+  getDreamWork(); // error not found
+  resolve('good job');
+});
+
+// catch error 
+promise6.catch(function(e){
+
+  const errorObj = {
+  	// synchronously all right now
+    // 'error': setTimeout(function(){
+   	// 	console.error(e);
+    // },2000),
+    // 'warn': setTimeout(function(){
+    // 	console.warn(e);
+    // },2000),
+    // 'dir': setTimeout(function(){
+    // 	console.dir(e);
+    // },2000),
+    // 'log': setTimeout(function() {
+    // 	console.log(e);
+    // }),
+
+  	// asynchronously
+    start: setTimeout(function() {
+      console.error(e);
+      setTimeout(function() {
+      	console.warn(e);
+      	setTimeout(function() {
+      	  console.dir(e);
+      	  setTimeout(function() {
+      	  	console.log(e);
+      	  }, 1200);
+      	}, 1200);
+      }, 1200);
+    }, 1200),
+  };
+
+  // setTimeout('')
+  // console.error(e);
+  // console.warn(e);
+  // console.dir(e);
+  // console.log(e);
+});
+
+// throw or reject ==
+const promise7 = new Promise(function(resolve, reject){
+  const parsed = parseInt('string no a number');
+  // if (isNaN(parsed)) {
+  // 	throw 'it-s a string, not a number'; // generate error
+  // } 
+  // the same code
+  if (isNaN(parsed)) { 
+    reject("Not a number");
+  }
+  // resolve(parsed);
+});
+
+promise7.catch(function(e){
+  setTimeout(function(){
+    console.error(e);
+  },1200);
+});
+
+// another function in the promise
+function getNubmerTest(str) {
+	const parsed = parseInt(str);
+	if (isNaN(parsed)) throw 'это не число - not a number';
+	else return parsed;
+}
+const promise8 = new Promise(function(resolve){
+  const res = getNubmerTest('string again');
+  resolve(res);
+});
+promise8.catch(function(e){
+  setTimeout(function(){
+    console.warn(e);
+  }, 3800)
+  // console.error(e);
+});
+
+// try.. catch
+const promise9 = new Promise(function(resolve, reject){
+  try {
+  	getNotAFunc(); // not found func
+  	resolve('тут был я - но функция не рабочая');
+  }
+  catch(e) {
+  	reject(`тут произошла ошибка: ${e.message}`);
+  }
+});
+promise9.catch(function(e){
+  console.error(e);
+});
+
+// one more time
+function generateNumber(str) {
+	return new Promise(function(resolve, reject){
+        const parsed = parseInt(str);
+        if (isNaN(parsed)) reject('значение не число');
+        else resolve(parsed);
+	})
+	.then(function(value){ console.log("Результат операции:", value);}, 
+        function(error){ console.log("Возникла ошибка:", error);});
+}
+// generateNumber('12');
+// generateNumber('asd');
+
+
+// chain then then then ...
+const helloPromise = new Promise(function(resolve){
+  resolve('новый промис 1 - ');
+});
+
+const wordPromise = helloPromise.then(function(value){
+  // return new value	
+  return value + " первый в мире ? 2 - ";
+});
+
+const qiPromise = wordPromise.then(function(value){
+  // return new value 
+  return value + " но не в центре земли 3 -";
+});
+ 
+qiPromise.then(function(finalValue){
+  // get all data 
+  console.log(finalValue);
+});
+
+// we can do it this way
+//  short code
+new Promise(resolve => resolve('good day'))
+.then(value => value + ' work best')
+.then(value => value + ' you are right')
+.then(finalValue => setTimeout(() => console.log(finalValue), 5330));
+
+// error processing
+function generateNum(str) {
+	return new Promise((resolve, reject) => {
+      const parsed = parseInt(str);
+      if(isNaN(parsed)) reject('нет это не число '); // if string - error
+      else resolve(parsed);
+	});
+};
+
+function printNum(str) {
+	generateNum(str) 
+	.then(v => console.warn(v))
+	.catch(e => console.error(e));
+}
+printNum('sttrrr');
+printNum('3');
+
+
+// finally выполнится не смотря не на что
+function generateNumber2(str){
+    return new Promise((resolve, reject) => {
+        const parsed = parseInt(str);
+        if (isNaN(parsed)) reject("Not a number");
+        else resolve(parsed);
+    });
+};
+function printNumber2(str){
+    generateNumber(str)
+    .then(value => console.log(value))
+    .catch(error => console.log(error))
+    .finally(() => console.log("End"));
+}
+ 
+printNumber2("3");
+printNumber2("triuy");
