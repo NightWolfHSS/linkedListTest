@@ -2,6 +2,8 @@
 // async methods here = test anync
 /* application ajax - XHR */
 // fakeapi JSON data
+// мне сказали что для того что бы стать проффесионалом мне нужно 10000 строк кода
+// это конечно отличная шутка потому что у меня уже over 10 000 000 ) за 7 лет программирования
 let requestURL = 'https://jsonplaceholder.typicode.com/users';
 /* create new xhr */
 const xhr = new XMLHttpRequest();
@@ -531,3 +533,11 @@ function printNumber2(str){
  
 printNumber2("3");
 printNumber2("triuy");
+
+// objects 
+const newBoss = {
+  boss: 'Michael',
+  age: 23,
+};
+const sss = Object.keys(newBoss);
+console.log(sss);
