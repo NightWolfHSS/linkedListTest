@@ -4,6 +4,7 @@
 // fakeapi JSON data
 // мне сказали что для того что бы стать проффесионалом мне нужно 10000 строк кода
 // это конечно отличная шутка потому что у меня уже over 10 000 000 ) за 7 лет программирования
+
 let requestURL = 'https://jsonplaceholder.typicode.com/users';
 /* create new xhr */
 const xhr = new XMLHttpRequest();
@@ -69,7 +70,7 @@ document.querySelector('.push-btn').addEventListener('click', function(){
 
 // stop right now the current xhr connection and run the following query
 
-
+// it is json ? no, just object
 const data = {
 	1: {
 		name: 'slavik',
@@ -82,17 +83,17 @@ const data = {
 }
     
 // работает
-// Object.keys(data).forEach(key => {
-	
-// 	let val = data[key];
-// 	console.log(`${key}`);
+Object.keys(data).forEach(key => {
+	let val = data[key];
+	console.log(`${key}`);
 
-// 	Object.keys(val).forEach(tkey => {
-// 		let vol = val[tkey];
-// 		console.log(`${ tkey }: ${vol}`);
-// 	})
+	Object.keys(val).forEach(tkey => {
+		let vol = val[tkey];
+		console.log(`${ tkey }: ${vol}`);
+	})
+	console.log('\r');
 
-// });
+});
 
 
 // test obj
@@ -539,5 +540,30 @@ const newBoss = {
   boss: 'Michael',
   age: 23,
 };
+// создаст массив ключей
+// такой же метод только values - для значений 
+
+
 const sss = Object.keys(newBoss);
-console.log(sss);
+// console.log(sss);
+// true is array
+// console.log(Array.isArray(sss));
+const iterator_sss = sss.keys();
+for(const key of iterator_sss) {
+	console.log(key);
+}
+const arr_sss = ['milk', 'apple', 'car'];
+for(const key of arr_sss) {
+	console.log(key);
+}
+// ets-1
+const arr2_sss = [
+	'duf', ['color', 'red'],
+	'skania', ['color', 'black'],
+	'actros', ['color', 'yellow'],
+	'volvo', ['color', 'green']
+];
+for(const key of arr2_sss) {
+	console.log(key);
+}
+// what is strange name`s variable ?
