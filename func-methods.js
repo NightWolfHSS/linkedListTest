@@ -29,9 +29,70 @@ context.addEventListener('mouseover', simple, {
 let sun2 = () => console.log('just test code');
 // sun2();
 
-let animusmal = prompt('ты кто ?: ', 'кот');
+// let animusmal = prompt('ты кто ?: ', 'кот');
 
-let personWel = (animusmal == 'кот') ?
-  () => console.log('здравствуй кот') :
-  () => console.log('сюда можно только котам');
+// let personWel = (animusmal == 'кот') ?
+//   () => console.log('здравствуй кот') :
+//   () => console.log('сюда можно только котам');
   // personWel();
+
+// функция по сложнее
+let sum = (a, b) => {
+  let result = a + b;
+  console.log(result);
+  return result;
+};
+// sum(7, 8); 15
+
+
+// more harder
+// function ask(question, yes, no) {
+//   if (confirm(question)) yes()
+//   else no();
+// }
+
+// ask(
+// 	'это правда?',
+// 	() => console.log('да'),
+// 	() => console.log('нет')
+// );
+
+function Person() {
+	this.age = 0;
+
+	setTimeout(() => {
+      this.age++; // this only object Person
+      console.log(this.age);
+	}, 1000);
+	console.log(this.age);
+
+}
+// let p = new Person();
+
+// 'use strict';
+let obj1 = {
+  i: 10,
+  b: () => console.log(this.i, this),
+  c: function() {
+  	console.log(this.i, this);
+  }
+};
+
+// obj1.b();
+// obj1.c();
+
+let myCollectionArr = [5,4,3,2,1];
+// console.log(myCollectionArr.map(x => x * x))
+// or like this 
+const nums = [1,2,3,4,5,6,7];
+const squares = nums.map(function(nums) {
+	return nums * nums;
+})
+// console.log(squares);
+// object maps 
+const obj2 = nums.map(function(num){
+	return {
+		field: num,
+	}
+})
+// console.log(obj2);
