@@ -2,7 +2,7 @@
 // 	console.log('10001000010100010000111000100001010000010000110001100010010111000011101110000010001001111');
 // }
 
-// just example regulart function
+// just example expression function
 let func = function (arg1, arg2, arg3) {
 	return expression;
 };
@@ -25,8 +25,13 @@ context.addEventListener('mouseover', simple, {
     once: true	
 });
 
-// brackets should be even if there are no arguments
+// brackets should be even if there are no argument
+let sun2 = () => console.log('just test code');
+// sun2();
 
-let sun2 = () =>  console.log('just test code');
-sun2();
+let animusmal = prompt('ты кто ?: ', 'кот');
 
+let personWel = (animusmal == 'кот') ?
+  () => console.log('здравствуй кот') :
+  () => console.log('сюда можно только котам');
+  // personWel();
