@@ -18,7 +18,7 @@ function simple() {
 	isResizeble = true;
 	let n = 6;
 	let sun1 = n => n * n;
-	console.log(sun1(n));
+	document.querySelector('.context-here p').innerHTML = n;
 }
 
 context.addEventListener('mouseover', simple, {
@@ -26,7 +26,6 @@ context.addEventListener('mouseover', simple, {
 });
 
 // brackets should be even if there are no argument
-let sun2 = () => console.log('just test code');
 // sun2();
 
 // let animusmal = prompt('ты кто ?: ', 'кот');
@@ -80,6 +79,7 @@ let obj1 = {
 
 // obj1.b();
 // obj1.c();
+b = () => console.log(obj1);
 
 let myCollectionArr = [5,4,3,2,1];
 // console.log(myCollectionArr.map(x => x * x))
@@ -96,3 +96,51 @@ const obj2 = nums.map(function(num){
 	}
 })
 // console.log(obj2);
+
+let getData = x => {
+  console.log('time chooses you: ' + x);
+}
+// getData('slavik');
+
+setTimeout(() => {
+	console.log('ассинхронная функция - время вышло');
+}, 1000);
+
+// краткий синтаксис неявно возвращающий результат
+let jready = turbo => turbo * turbo; 
+// console.log(jready(7));
+
+// блочный синтаксис явно возвращающий результат
+let hks = (x, t) => { return x + t;};
+// console.log(hks(1,1));
+
+// Amazing func XD - на самом деле она самовызовная 
+/* i don`t know how it`s work XD - */
+// an LIFE immediately Invoke Function Exspression 
+(() => 'foobar')();
+
+// just example 
+(function() {
+  console.log('you can see - ты увидешь это - так как она вызывается непосредственно');
+})();
+
+let timeOutItIsBeggin = unknown => { return unknown; }
+// example 2
+(() => {
+	setTimeout(() => {
+    	console.log(timeOutItIsBeggin('начало после одной секунды - привет ассинхронная функция'));
+	}, 1200);
+})();
+
+// (() => {
+// 	const base = 'name is time out Slavik proffesional';
+// 	console.log(base);
+// })();
+
+function generateEnginePower(unknown) {
+	const base = 'kikdown';
+	((unknown) => {
+		console.log(unknown);
+	})(unknown);
+}
+generateEnginePower('вот суховатый пример все таки');

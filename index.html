@@ -23,7 +23,7 @@
                                       supported by Chrome, Edge, Opera and Firefox */
     }
     body { padding: 4px; }
-    footer { background: black; color: white; margin-bottom: 110px;}
+    footer { background-image: url('images/js.jpg'); background-position: 50% 180px; color: white; margin-bottom: 110px;}
     .context-here {
         padding: 10px 20px;
         background: orange;
@@ -33,13 +33,14 @@
         padding-bottom:40px;
         height: 100px;
         width: 100%;
-        background-image: url('images/f2.jpg');
+        background-image: url('images/js.jpg');
         background-size: cover;
     }
     .line-head-images{
         height: 100px;
         width: 100%;
-        background-image: url('images/h.jpg');
+        background-image: url('images/js.jpg');
+        background-position: center;
         background-size: cover;
     }
     .push {
@@ -90,6 +91,74 @@
         font-weight: 20px;
     }
     .push-btn:hover { border: 1px solid red; color: red;}
+
+    .box-f1 {
+        color: white;
+        padding: 20px;
+        background-image: url('images/f2.jpg');
+        background-size: cover;
+
+    }
+    .box-f1 p { background: black; }
+    .box-f2 {
+        border-left: 2px solid silver;
+        color: white;
+        padding-left: 20px;
+        width: 50%;
+        background-image: linear-gradient(
+          45deg,
+          hsl(240deg 100% 20%) 0%,
+          hsl(289deg 100% 21%) 11%,
+          hsl(315deg 100% 27%) 22%,
+          hsl(329deg 100% 36%) 33%,
+          hsl(337deg 100% 43%) 44%,
+          hsl(357deg 91% 59%) 56%,
+          hsl(17deg 100% 59%) 67%,
+          hsl(34deg 100% 53%) 78%,
+          hsl(45deg 100% 50%) 89%,
+          hsl(55deg 100% 50%) 100%
+        );
+        box-shadow: 0px 1px 10px black;
+    }
+    .form-data {
+        display: flex;
+        background: #F3F0D7;
+        padding: 40px;
+    }
+    .form-data form {
+        padding: 2px;
+        margin: 20px;
+        border-radius: 10px;
+    }
+
+    .form-data input {
+        display: block;
+        background: #3c2110a8;
+        padding: 5px;
+        margin: 5px 0;
+        border: 1px solid #867070;
+        border-radius: 6px;
+        outline: none;
+        font-size: 19px;
+        color: white;
+    }
+    .form-data input::placeholder  {
+        color: silver;
+    }
+
+    .form-data input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+      color: silver;
+    }
+
+    .form-data input::-ms-input-placeholder { /* Microsoft Edge */
+      color: silver;
+    }
+    .notice {
+        padding: 20px;
+        background: #4B6587;
+        color: #F0E5CF;
+    }
+
 </style>
 <body>
     <div class="line-head-images"></div>
@@ -104,7 +173,8 @@
 
     <div class="box-res">
         <h1>Отображение результата запроса:</h1>
-        <p>результат</p>
+        <h1>JSON | XHR - FETCH - AJAX</h1><p>получение данных ассирхронно</p>
+        <p>результат:</p>
         <br>
         <div class="push-btn">отправить запрос</div>
     </div>
@@ -128,6 +198,27 @@
        <p>empty</p>
    </div>
 
+   <div class="form-data">
+       <!-- flex ready -->
+       <div class="box-f1">
+           <p>отправка данных <span style="color: orangered;">(XHR)</span></p>
+           <form name="person">
+                <input name="name" type="text" placeholder="имя тачки">
+                <input namem="surname" type="text" placeholder="номер тачки">           
+           </form>
+       </div>
+       <div class="box-f2">
+           <p style="text-decoration:underline; font-weight: bold; color: lightcoral;">доброе утро</p>
+           <p>нам это нужно для того что бы проработать отправку данных</p>
+           <b>несмотря на то что это выглядит очень примитивно - <br> вы можете понять что дом строится тоже по кирпичикам</b>
+       </div> 
+
+   </div>
+
+   <div class="notice">
+       <h3>Этот сайт не претендует на дизайн не капли - просто мне было интерессно что то отточить и да он для того что бы изучать js xhr - структуры данных - алгоритмы</h3>
+       <p>ps (this is house)</p>
+   </div>
 
 <footer style='top: 100px; position: relative; padding: 20px;'>
     <span style="color: orange;">(c)</span> slavik programmer | this is footer | js-ready
@@ -135,7 +226,16 @@
 <div class="line-foo-images"></div>
 <script>
    
-
+let formData = new FormData(document.forms.person);
+// add new field 
+formData.append('middle', 'Senior');
+// send message
+let xhr = new XMLHttpRequest();
+xhr.open('POST', '/route/test');
+/*xhr.send(formData);*/
+/*необходим нужный готовый маршрут*/
+/*xhr.onload = () => alert(xhr.response);*/
+/*кнопка для отправки*/
 
 
 
