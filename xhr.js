@@ -567,3 +567,4 @@ for(const key of arr2_sss) {
 	console.log(key);
 }
 // what is strange name`s variable ?
+// plans
